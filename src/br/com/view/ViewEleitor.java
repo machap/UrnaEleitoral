@@ -52,7 +52,7 @@ public class ViewEleitor extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Eleitor");
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));

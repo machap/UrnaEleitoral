@@ -28,7 +28,7 @@ public class ViewLogin extends javax.swing.JFrame {
     
     public boolean checkLogin(String login, String senha){
         
-        return login.equals("usuario") && senha.equals("123");
+        return login.equals("admin") && senha.equals("admin");
     }
     
     

@@ -31,9 +31,9 @@ public class ViewPrincipal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnUrna = new javax.swing.JButton();
+        btnCandidato = new javax.swing.JButton();
+        btnEleitor = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -58,13 +58,11 @@ public class ViewPrincipal extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -77,23 +75,38 @@ public class ViewPrincipal extends javax.swing.JFrame {
                 .addContainerGap(52, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(0, 107, 255));
-        jButton1.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(254, 254, 254));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/icons/urna.png"))); // NOI18N
-        jButton1.setText("Urna");
+        btnUrna.setBackground(new java.awt.Color(0, 107, 255));
+        btnUrna.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        btnUrna.setForeground(new java.awt.Color(254, 254, 254));
+        btnUrna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/icons/urna.png"))); // NOI18N
+        btnUrna.setText("Urna");
+        btnUrna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUrnaActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(0, 107, 255));
-        jButton2.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(254, 254, 254));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/icons/candidatos.png"))); // NOI18N
-        jButton2.setText("Candidato");
+        btnCandidato.setBackground(new java.awt.Color(0, 107, 255));
+        btnCandidato.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        btnCandidato.setForeground(new java.awt.Color(254, 254, 254));
+        btnCandidato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/icons/candidatos.png"))); // NOI18N
+        btnCandidato.setText("Candidato");
+        btnCandidato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCandidatoActionPerformed(evt);
+            }
+        });
 
-        jButton3.setBackground(new java.awt.Color(0, 107, 255));
-        jButton3.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(254, 254, 254));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/icons/eleitor.png"))); // NOI18N
-        jButton3.setText("Eleitor");
+        btnEleitor.setBackground(new java.awt.Color(0, 107, 255));
+        btnEleitor.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        btnEleitor.setForeground(new java.awt.Color(254, 254, 254));
+        btnEleitor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/icons/eleitor.png"))); // NOI18N
+        btnEleitor.setText("Eleitor");
+        btnEleitor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEleitorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -102,11 +115,11 @@ public class ViewPrincipal extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(56, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEleitor, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnUrna, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -115,9 +128,9 @@ public class ViewPrincipal extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnUrna, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEleitor, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
 
@@ -171,6 +184,24 @@ public class ViewPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void btnEleitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEleitorActionPerformed
+        // TODO add your handling code here:
+        
+        new ViewEleitor().setVisible(true);
+    }//GEN-LAST:event_btnEleitorActionPerformed
+
+    private void btnUrnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUrnaActionPerformed
+        // TODO add your handling code here:
+        
+        new ViewUrna().setVisible(true);
+    }//GEN-LAST:event_btnUrnaActionPerformed
+
+    private void btnCandidatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCandidatoActionPerformed
+        // TODO add your handling code here:
+        
+        new ViewCandidato().setVisible(true);
+    }//GEN-LAST:event_btnCandidatoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -208,9 +239,9 @@ public class ViewPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnCandidato;
+    private javax.swing.JButton btnEleitor;
+    private javax.swing.JButton btnUrna;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;

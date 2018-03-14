@@ -44,7 +44,7 @@ public class ViewCandidato extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Candidatos");
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
