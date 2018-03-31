@@ -5,6 +5,8 @@
  */
 package br.com.view;
 
+import br.com.model.bean.Eleitor;
+import br.com.model.dao.EleitorDAO;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,7 +21,47 @@ public class ViewEleitor extends javax.swing.JFrame {
     public ViewEleitor() {
         initComponents();
     }
+    
+    public void limpar(){
+        this.jtfNome.setText("");
+        this.jtfCpf.setText("");
+        this.jtfCep.setText("");
+        this.jtfRua.setText("");
+        this.jtfBairro.setText("");
+        this.jtfNumero.setText("");
+    }
 
+    public boolean checar(){
+        
+         if(jtfNome.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo nome.", "Alerta", JOptionPane.WARNING_MESSAGE);
+            jtfNome.requestFocus();
+            return false;
+        } else if(jtfCpf.getText().trim().length() != 14){
+            JOptionPane.showMessageDialog(null, "Preencha o campo CPF.", "Alerta", JOptionPane.WARNING_MESSAGE);
+            jtfCpf.requestFocus();
+            return false;
+        } else if(jtfCep.getText().trim().length() != 9){
+            JOptionPane.showMessageDialog(null, "Preencha o campo CEP.", "Alerta", JOptionPane.WARNING_MESSAGE);
+            jtfCep.requestFocus();
+            return false;
+        } else if(jtfRua.getText().trim().equals("")){
+             JOptionPane.showMessageDialog(null, "Preencha o campo Rua.", "Alerta", JOptionPane.WARNING_MESSAGE);
+             jtfRua.requestFocus();
+             return false;
+        } else if(jtfNumero.getText().trim().equals("")){
+             JOptionPane.showMessageDialog(null, "Preencha o campo Numero.", "Alerta", JOptionPane.WARNING_MESSAGE);
+             jtfNumero.requestFocus();
+             return false;
+        } else if(jtfBairro.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Bairro.", "Alerta", JOptionPane.WARNING_MESSAGE);
+            jtfBairro.requestFocus();
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -264,32 +306,34 @@ public class ViewEleitor extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfBairroActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        // TODO add your handling code here:
+       
+        if(checar()){
+            
+        Eleitor eleitor = new Eleitor();
+        EleitorDAO dao = new EleitorDAO();
+        
+        eleitor.setNome(jtfNome.getText());
+        eleitor.setCpf(jtfCpf.getText());
+        eleitor.setCep(jtfCep.getText());
+        eleitor.setRua(jtfRua.getText());
+        eleitor.setBairro(jtfBairro.getText());
+        eleitor.setNumero(jtfNumero.getText());
+        
+        if(dao.salvar(eleitor))
+            JOptionPane.showMessageDialog(null, "Eleitor salvo com Sucesso !");
+        else
+            JOptionPane.showMessageDialog(null, "Falha ao Salvar !");
+        
+        }
+        
+        limpar();
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
   
-        if(jtfNome.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(null, "Preencha o campo nome.", "Alerta", JOptionPane.WARNING_MESSAGE);
-            jtfNome.requestFocus();
-        } else if(jtfCpf.getText().trim().length() != 14){
-            JOptionPane.showMessageDialog(null, "Preencha o campo CPF.", "Alerta", JOptionPane.WARNING_MESSAGE);
-            jtfCpf.requestFocus();
-        } else if(jtfCep.getText().trim().length() != 9){
-            JOptionPane.showMessageDialog(null, "Preencha o campo CEP.", "Alerta", JOptionPane.WARNING_MESSAGE);
-            jtfCep.requestFocus();
-        } else if(jtfRua.getText().trim().equals("")){
-             JOptionPane.showMessageDialog(null, "Preencha o campo Rua.", "Alerta", JOptionPane.WARNING_MESSAGE);
-             jtfRua.requestFocus();
-        } else if(jtfNumero.getText().trim().equals("")){
-             JOptionPane.showMessageDialog(null, "Preencha o campo Numero.", "Alerta", JOptionPane.WARNING_MESSAGE);
-             jtfNumero.requestFocus();
-        } else if(jtfBairro.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(null, "Preencha o campo Bairro.", "Alerta", JOptionPane.WARNING_MESSAGE);
-            jtfBairro.requestFocus();
-        } else{
-            JOptionPane.showMessageDialog(null, "Dados Salvos.", "Alerta", JOptionPane.WARNING_MESSAGE);
+        if(checar()){
+         //implementar   
         }
         
     }//GEN-LAST:event_btnSalvarActionPerformed

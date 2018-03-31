@@ -1,9 +1,10 @@
 build.*
 /bin/
 build/
-build/
+build/*
 
 
 /dist/
 
 nbproject*
+nbproject/*
