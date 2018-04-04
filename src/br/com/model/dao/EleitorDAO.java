@@ -4,7 +4,11 @@ import br.com.connection.ConnectionFactory;
 import br.com.model.bean.Eleitor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -45,6 +49,47 @@ public class EleitorDAO {
         }finally{
             ConnectionFactory.closeConnection(con, stmt);
         }
+    }
+    
+    public List<Eleitor> retornarDados(){
+        
+        String sql = "SELECT * FROM tbEleitor";
+
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Eleitor> eleitores = new ArrayList<>();
+        
+        try {
+
+            stmt = con.prepareStatement(sql);
+            rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+
+                Eleitor eleitor  = new Eleitor();
+
+                eleitor.setId(rs.getInt("id"));
+                eleitor.setNome(rs.getString("nome"));
+                eleitor.setCpf(rs.getString("cpf"));
+                eleitor.setCep(rs.getString("cep"));
+                eleitor.setRua(rs.getString("rua"));
+                eleitor.setBairro(rs.getString("bairro"));
+                eleitor.setNumero(rs.getString("numero"));
+                
+                eleitores.add(eleitor);
+
+            }
+        } catch (SQLException ex) {
+
+            System.err.println("Erro: " + ex);
+
+        } finally {
+
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        
+        return eleitores;
     }
         
 }
